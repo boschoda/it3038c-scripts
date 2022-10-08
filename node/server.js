@@ -1,4 +1,7 @@
 const http = require("http");
+const fs = require("fs");
+const os = require("os");
+const ip = require('ip');
 
 http.createServer((req, res) => {
 	if (req.url === "/") {
