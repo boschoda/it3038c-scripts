@@ -3,15 +3,20 @@ const fs = require("fs");
 const os = require("os");
 const ip = require('ip');
 
+
 http.createServer((req, res) => {
 	if (req.url === "/") {
-        fs.readFile("./Public/index.html", "UTF-8", (err, body) => {
+        fs.readFile("./node/Public/index.html", "UTF-8", (err, body) => {
 
 	  res.writeHead(200, {"Content-Type": "text/html"});
   	  res.end(body);
 	});
       } else if(req.url.match("/sysinfo")) {
 	      myHostName=os.hostname();
+	      totalUptime=os.uptime();
+	      totalMemory=os.totalmem();
+	      totalFreeMemory=os.freemem();
+	      totalCPUs=os.cpus().length;
 	      html=`
 	      <!DOCTYPE html>
 		      <html>
@@ -21,10 +26,10 @@ http.createServer((req, res) => {
 		      <body>
 		      <p>Hostname: ${myHostName}</p>
 		      <p>IP: ${ip.address()}</p>
-		      <p>Server Uptime: </p>
-		      <p>Total Memory: </p>
-		      <p>Free Memory: </p>
-		      <p>Number of CPUs: </p>
+		      <p>Server Uptime: ${totalUptime}</p>
+		      <p>Total Memory: ${totalMemory}</p>
+		      <p>Free Memory: ${totalFreeMemory}</p>
+		      <p>Number of CPUs: ${totalCPUs}</p>
 		      </body>
 		      </html>`
 	      res.writeHead(200, {"Content-Type": "text/html"});
