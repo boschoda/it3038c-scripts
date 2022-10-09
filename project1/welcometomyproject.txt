@@ -1,0 +1,6 @@
+Purpose of My Project
+
+I want my application to be able to pull words from a document or book possibly.
+For now, I only have it set to where it pulls a specified number of strings and displays it in the output.
+I would like to work more on it and add the ability to have the user input in a string and any matching results to display back to them. 
+For now, I have a samp;le text with a list of words and it displays only the words that fit the perimeter I set.
