@@ -1,0 +1,7 @@
+						Citations
+
+YouTube. (2021). How to Read and Write to Text Files in JavaScript. YouTube. Retrieved October 9, 2022
+	, from https://www.youtube.com/watch?v=zMX3gqs3Y7I.
+
+Javascript string methods. (n.d.). Retrieved October 9, 2022,
+	from https://www.w3schools.com/js/js_string_methods.asp 
