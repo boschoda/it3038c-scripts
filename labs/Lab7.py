@@ -10,20 +10,20 @@ class Student(BaseModel):
     student = CharField(unique=True)
 
 class Classes(BaseModel):
-    studentname = ForeignKeyField(Student, backref='classes')
+    studentname = ForeignKeyField(Student)
     classname = CharField(unique=True)
 
 db.connect()
 db.create_tables([Student,Classes])
 
-dora = Student.create(studentname = 'boschoda')
-lara = Student.create(studentname = 'boschola')
-
-dora = Classes.create(classname = 'SCRIPTING')
-lara = Classes.create(classname = 'BIOLOGY')
-lara = Classes.create(classname = 'CHEMISTRY')
+dora = Student.create(student = 'boschoda')
+lara = Student.create(student = 'boschola')
 
 dora.save()
 lara.save()
 
-Student.get(Student.student == 'dora')
+Classes.create(studentname = dora, classname = 'SCRIPTING')
+Classes.create(studentname = lara, classname = 'BIOLOGY')
+
+Student.get(Student.student == dora)
+Student.get(Student.student == lara)
