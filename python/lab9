@@ -1,0 +1,10 @@
+import json
+import requests
+
+r = requests.get('http://localhost:3000/')
+data=r.json()
+
+widgets = [data["name"] for data in data]
+colors = [data["color"] for data in data]
+
+print('These', widgets , 'are', colors, '.')
